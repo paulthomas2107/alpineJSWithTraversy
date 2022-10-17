@@ -20,7 +20,13 @@
       <div x-data="{
         open: false, 
         name: 'Paul',
-        search: ''
+        search: '',
+        posts: [
+          {title: 'Post one'},
+          {title: 'Post two'},
+          {title: 'Post three'},
+          {title: 'Post four'},
+        ]
       }">
         <!-- x-on x-bind -->
         <button x-on:click="open = !open" x-bind:class="open ? 'bg-blue-800' : 'bg-slate-700' "  class="text-white px-4 py-2 rounded-xl">
@@ -47,6 +53,17 @@
           <span class="font-bold">Searching for: </span>
           <span x-text="search"></span>
         </p>
+        <!-- x-if -->
+        <template x-if="open">
+          <div class="bg-gra-50 p-2 mt-8">
+            Template based on a condition
+          </div>
+        </template>
+        <!-- X-for -->
+        <h3 class="text-2xl mt-6 mb-3 font-bold">Posts</h3>
+        <template x-for="post in posts">
+          <div x-text="post.title"></div>
+        </template>
       </div>
     </div>
   </body>
