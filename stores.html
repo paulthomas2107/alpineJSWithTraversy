@@ -14,7 +14,10 @@
       quidem magnam fuga iusto, possimus eveniet facere praesentium, consectetur
       exercitationem, a sunt molestias magni aliquid officiis tempore optio
       earum nihil! Magni!
-      <button @click="$store.darkMode.toggle()"  class="block mt-4 text-xs bg-gray-200 px-4 py-2">
+      <button
+        @click="$store.darkMode.toggle()"  
+        :class="$store.darkMode.on && 'bg-gray-700'"
+        class="block mt-4 text-xs bg-gray-200 px-4 py-2">
         Toggle Dark Mode
       </button>
     </div>
