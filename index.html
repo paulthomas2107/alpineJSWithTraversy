@@ -7,9 +7,9 @@
     <script src="https://unpkg.com/alpinejs" defer></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        [x-cloak] {
-            display: none;
-        }
+      [x-cloak] {
+        display: none;
+      }
     </style>
     <title>AlpineJS Demo</title>
   </head>
@@ -17,7 +17,8 @@
     <div class="container mx-auto mt-6 max-w-sm">
       <h1 class="text-5xl mb-4">Alpine JS Demo</h1>
       <!-- x-data -->
-      <div x-data="{
+      <div
+        x-data="{
         open: false, 
         name: 'Paul',
         search: '',
@@ -27,13 +28,18 @@
           {title: 'Post three'},
           {title: 'Post four'},
         ]
-      }">
+      }"
+      >
         <!-- x-on x-bind -->
-        <button x-on:click="open = !open" x-bind:class="open ? 'bg-blue-800' : 'bg-slate-700' "  class="text-white px-4 py-2 rounded-xl">
-            Toggle
+        <button
+          x-on:click="open = !open"
+          x-bind:class="open ? 'bg-blue-800' : 'bg-slate-700' "
+          class="text-white px-4 py-2 rounded-xl"
+        >
+          Toggle
         </button>
         <!-- x-show x-cloak x-transition  -->
-        <div x-show="open" x-transition  x-cloak> 
+        <div x-show="open" x-transition x-cloak>
           <p class="bg-gray-200 p-4 my-6 rounded">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
             ad, odio enim deserunt iste expedita voluptatum, excepturi dolorem,
@@ -48,23 +54,37 @@
         <!-- x-effect-->
         <div x-effect="console.log(open)"></div>
         <!-- x-model -->
-        <input x-model='search' type="text" class="border p-2 w-full mb-2 mt-6" placeholder="Search for stuff....">
+        <input
+          x-model="search"
+          type="text"
+          class="border p-2 w-full mb-2 mt-6"
+          placeholder="Search for stuff...."
+        />
         <p>
           <span class="font-bold">Searching for: </span>
           <span x-text="search"></span>
         </p>
         <!-- x-if -->
         <template x-if="open">
-          <div class="bg-gra-50 p-2 mt-8">
-            Template based on a condition
-          </div>
+          <div class="bg-gra-50 p-2 mt-8">Template based on a condition</div>
         </template>
         <!-- X-for -->
         <h3 class="text-2xl mt-6 mb-3 font-bold">Posts</h3>
         <template x-for="post in posts">
           <div x-text="post.title"></div>
         </template>
-        <button @click="posts.push({title: 'New Post'})" class="bg-blue-800 text-white px-4 py-2 rounded-lg mt-4">Add Post...</button>
+        <button
+          @click="posts.push({title: 'New Post'})"
+          class="bg-blue-800 text-white px-4 py-2 rounded-lg mt-4"
+        >
+          Add Post...
+        </button>
+        <div class="my-6">
+          <!-- x-ref -->
+          <div x-ref="text">Hello World</div>
+            <button @click="$refs.text.remove()"  class="bg-black text-white p-2 rounded-lg">Click</button>
+          </div>
+        </div>
       </div>
     </div>
   </body>
