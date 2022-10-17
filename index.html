@@ -16,11 +16,18 @@
   <body>
     <div class="container mx-auto mt-6 max-w-sm">
       <h1 class="text-5xl mb-4">Alpine JS Demo</h1>
-      <div x-data="{open: false}">
-        <button x-on:click="open = !open" class="bg-slate-700 text-white px-4 py-2 rounded-xl">
+      <!-- x-data -->
+      <div x-data="{
+        open: false, 
+        name: 'Paul',
+        search: ''
+      }">
+        <!-- x-on x-bind -->
+        <button x-on:click="open = !open" x-bind:class="open ? 'bg-blue-800' : 'bg-slate-700' "  class="text-white px-4 py-2 rounded-xl">
             Toggle
         </button>
-        <div x-show="open" x-cloak>
+        <!-- x-show x-cloak x-transition  -->
+        <div x-show="open" x-transition  x-cloak> 
           <p class="bg-gray-200 p-4 my-6 rounded">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
             ad, odio enim deserunt iste expedita voluptatum, excepturi dolorem,
@@ -28,6 +35,18 @@
             obcaecati fuga modi!
           </p>
         </div>
+        <!-- x-text -->
+        <div class="my-4">
+          The value of name is <span x-text="name" class="font-bold"></span>
+        </div>
+        <!-- x-effect-->
+        <div x-effect="console.log(open)"></div>
+        <!-- x-model -->
+        <input x-model='search' type="text" class="border p-2 w-full mb-2 mt-6" placeholder="Search for stuff....">
+        <p>
+          <span class="font-bold">Searching for: </span>
+          <span x-text="search"></span>
+        </p>
       </div>
     </div>
   </body>
