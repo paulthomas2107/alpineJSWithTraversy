@@ -101,12 +101,14 @@
            <button @click="getLatestPost($data.posts)" class="bg-orange-800 text-white mt-6 p-2 rounded-lg">Get Latest Post</button>
         </div>
       </div>
+      <footer x-data class="text-center mt-10">
+        <p>Copyright &copy; <span x-text="new Date().getFullYear()"></span></p>
+      </footer>
       <script>
         function getLatestPost(posts) {
           console.log(posts.slice(-1).pop())
         }
       </script>
     </div>
-    
   </body>
 </html>
